@@ -1,0 +1,422 @@
+[
+  {
+    "distance": 336,
+    "baseDistance": 277,
+    "source": "track",
+    "timestamp": 1771667671.416,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 345,
+    "baseDistance": 277,
+    "source": "track",
+    "timestamp": 1771671278.372,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 345,
+    "baseDistance": 277,
+    "source": "track",
+    "timestamp": 1771679213.754,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 342,
+    "baseDistance": 277,
+    "source": "track",
+    "timestamp": 1771681302.492,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 342,
+    "baseDistance": 277,
+    "source": "track",
+    "timestamp": 1771822830.408,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 342,
+    "baseDistance": 277,
+    "source": "track",
+    "timestamp": 1771834418.757,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.061677195711,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1773734263.456,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.0763569437061,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1773747377.625,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.3079249519119,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1773753825.456,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.4653675731884,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1773757379.974,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.51775058555086,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1773789294.213,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.1581957130911,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1773809497.451,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.65331790216,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1773823018.846,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.8689299256462,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1773922815.431,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.1160811502841,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1773932872.552,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.90959850936343,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774011265.23,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.87571044863097,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774017915.031,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.74259412566346,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774021127.965,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.7578742148146,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774027696.002,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.5432036304424,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774062805.414,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.45256598029874,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774101296.687,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.37885206818595,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774104957.573,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.1305325652173,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774114723.447,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.56860240992955,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774124844.817,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.54953242633144,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774136866.694,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.77263412249357,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774183677.254,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.9989468742702,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774186154.011,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.4918845947763,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774187387.11,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.2246571876534,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774188672.517,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.3406109570715,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774198602.248,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.05502272909,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774201689.761,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.666349025719,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774204903.672,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.6942746247574,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774214477.136,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.2141791737363,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774217626.906,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.8632461113652,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774224308.509,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.31579888806226,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774227807.288,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.2189742517725,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774243306.12,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.0627675924082,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774253898.884,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.38700763279434,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774256918.68,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.435559964147,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774260370.62,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.228046524452,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774263744.405,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.9398274380625,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774266938.744,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.92164690185194,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774270434.922,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.3953020970013,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774273695.756,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.47861439570414,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774336948.236,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.7945375485109,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774340262.615,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.82520356898976,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774346829.471,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.6567531482743,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774353632.889,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.3831830936854,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774363622.511,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.5099820772314,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774783273.499,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.1772861969995,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774843420.95,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.3367265079082,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774850032.524,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.9513857561261,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774857328.817,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 252.38768381455702,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774872844.561,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.8330500380617,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774879450.163,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.51354084894564,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1774882163.809,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.3871609904804,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1775060341.123,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.8817964367311,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1775062993.563,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 258.2077080330148,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1775099214.582,
+    "accountId": "282259734"
+  },
+  {
+    "distance": 257.6743436306411,
+    "baseDistance": 258,
+    "source": "track",
+    "timestamp": 1775231264.253,
+    "accountId": "282259734"
+  }
+]

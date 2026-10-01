@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026-02-11 版本更新内容（v4.1）</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      line-height: 1.7;
+      color: #333;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+      background: #fafafa;
+    }
+    h1 {
+      font-size: 1.75rem;
+      border-bottom: 2px solid #1890ff;
+      padding-bottom: 12px;
+      margin-top: 0;
+      color: #111;
+    }
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 32px;
+      color: #1890ff;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 20px;
+      color: #333;
+    }
+    p { margin: 10px 0; }
+    ul, ol { margin: 10px 0; padding-left: 24px; }
+    li { margin: 6px 0; }
+    code, .tag {
+      background: #f0f0f0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.9em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid #e8e8e8;
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    th { background: #fafafa; font-weight: 600; color: #333; }
+    .tag-pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: #e6f7ff;
+      color: #1890ff;
+      border: 1px solid #91d5ff;
+      margin-left: 4px;
+    }
+    .section {
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e8e8e8;
+      padding: 16px 18px;
+      margin-top: 16px;
+    }
+    .tip {
+      background: #e6f7ff;
+      border: 1px solid #91d5ff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-top: 14px;
+      font-size: 0.95rem;
+    }
+    .warn {
+      background: #fffbe6;
+      border: 1px solid #ffe58f;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-top: 14px;
+      font-size: 0.95rem;
+    }
+    hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .small { font-size: 0.9rem; color: #666; }
+  </style>
+</head>
+<body>
+
+  <h1>2026-02-11 版本更新内容（v4.1）</h1>
+  <p>本次为 <strong>4.1 版本更新</strong>，以下为本次实际改动内容说明。</p>
+
+  <div class="section">
+    <h2>一、基础信息</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th style="width: 130px;">版本号</th>
+          <td>v4.1</td>
+        </tr>
+        <tr>
+          <th>发布日期</th>
+          <td>2026-02-11</td>
+        </tr>
+        <tr>
+          <th>更新类型</th>
+          <td>
+            功能升级
+            <span class="tag-pill">Feature</span>
+            <span class="tag-pill">UX 优化</span>
+            <span class="tag-pill">稳定性</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>二、详细更新内容</h2>
+    <ol>
+      <li>增加顶部标签页面，打开的标签页若不关闭，则缓存不会释放，消除切换页面时重新刷新页面的不愉快体验。并且常用标签页可加锁锁定，防止误触发关闭按钮。</li>
+      <li>优化账密登录逻辑。</li>
+      <li>对话消息页面，将同时显示 3 个列表的对话消息，第一列固定显示全部会话消息，第二列第三列显示前两个账号的对话消息，可以自由切换账号显示，3 个列表都能进行自由聊天、同时聊天。</li>
+      <li>优化视觉 bug。</li>
+      <li>发货内容页面，库存发货内容列表中将内容修改为库存显示。</li>
+      <li>AI 配置，增加 AI 回复提醒开关按钮，若开关开启，AI 回复开头会加一句「我是 AI 助手，若要关闭请回复关闭」；对方回复「关闭」后，本对话不再进行 AI 自动回复（30 分钟后自动恢复）。</li>
+      <li>若是在自动回复过程中，人工干预回复消息后，自动回复将自动关闭，并在 30 分钟后恢复自动回复。</li>
+    </ol>
+  </div>
+
+  <p class="small" style="margin-top: 32px;">
+    文档仅用于 2026-02-11（v4.1）版本的功能说明与变更记录，后续版本请参考最新更新文档与 CHANGELOG。
+  </p>
+
+</body>
+</html>
+

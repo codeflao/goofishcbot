@@ -1,0 +1,1 @@
+function e(e){return e===`dark`||e===`geek`}function t(e){return e===`apple`}export{e as n,t};

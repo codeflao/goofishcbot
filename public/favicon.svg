@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="appleBlueFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#42a5ff" />
+      <stop offset="100%" stop-color="#007aff" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="9" fill="#ffffff" />
+  <rect x="0.5" y="0.5" width="31" height="31" rx="8.5" fill="none" stroke="rgba(60,60,67,0.22)" />
+  <path
+    d="M16 6.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm0 2a7.5 7.5 0 0 1 6.38 11.44l-2.55-2.55a3.75 3.75 0 1 0-1.42 1.42l2.55 2.55A7.5 7.5 0 1 1 16 8.5Z"
+    fill="url(#appleBlueFav)"
+  />
+  <circle cx="16" cy="16" r="1.6" fill="#007aff" />
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="闲鱼智能管理系统">
+  <defs>
+    <linearGradient id="appleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#42a5ff" />
+      <stop offset="100%" stop-color="#007aff" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="#ffffff" />
+  <rect x="4.5" y="4.5" width="55" height="55" rx="15.5" fill="none" stroke="rgba(60,60,67,0.22)" />
+  <path
+    d="M32 14c-10.49 0-19 8.51-19 19s8.51 19 19 19 19-8.51 19-19-8.51-19-19-19Zm0 4c8.28 0 15 6.72 15 15 0 2.84-.79 5.49-2.17 7.75l-5.04-5.04a7.5 7.5 0 1 0-2.83 2.83l5.04 5.04A14.94 14.94 0 0 1 32 48c-8.28 0-15-6.72-15-15s6.72-15 15-15Z"
+    fill="url(#appleBlue)"
+  />
+  <circle cx="32" cy="32" r="3.25" fill="#007aff" />
+</svg>

@@ -1,0 +1,1 @@
+function e(e){let t=new Set((e.accounts??[]).map(e=>e.id)),n=0;for(let r of e.clients??[])r.connected&&t.has(r.accountId)&&n++;return n}export{e as t};

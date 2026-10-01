@@ -1,0 +1,1 @@
+import{a as e,i as t,n,r}from"./client-BkcJxniS.js";async function i(e){return r(`/api/workflows`,{signal:e})}async function a(e){return t(`/api/workflows`,e)}async function o(t,n){return e(`/api/workflows/${t}`,n)}async function s(e){return n(`/api/workflows/${e}`)}async function c(e){return t(`/api/workflows/${e}/default`)}export{o as a,c as i,s as n,i as r,a as t};

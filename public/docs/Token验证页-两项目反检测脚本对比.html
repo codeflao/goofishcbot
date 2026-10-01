@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token 验证页 - 三项目反检测脚本对比</title>
+  <style>
+    body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+    h1 { color: #333; border-bottom: 2px solid #4a90d9; padding-bottom: 8px; }
+    h2 { color: #444; margin-top: 32px; }
+    p { color: #555; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+    th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; }
+    th { background: #4a90d9; color: white; font-weight: 600; }
+    tr:nth-child(even) { background: #f9f9f9; }
+    tr:hover { background: #f0f7ff; }
+    .risk-high { color: #c00; font-weight: bold; }
+    .risk-mid { color: #e67e00; }
+    .risk-low { color: #27ae60; }
+    .note { background: #f5f5f5; padding: 12px 16px; margin: 16px 0; border-left: 4px solid #4a90d9; }
+    .conclusion { background: #e8f4fc; padding: 16px; margin-top: 24px; border-radius: 4px; }
+    .conclusion ul { margin: 8px 0; padding-left: 24px; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+    hr { border: none; border-top: 1px solid #ddd; margin: 24px 0; }
+  </style>
+</head>
+<body>
+
+<h1>Token 验证页 - 三项目反检测脚本对比</h1>
+<p>对比 <strong>备份项目</strong>（26.3.1备份3--修改免拼发货）、<strong>xianyu-super-butler-2.2</strong> 与 <strong>本项目</strong> 在 Token 验证页注入的反检测脚本，并标注高风险项。</p>
+
+<hr>
+
+<h2>一、备份项目 getStealthScript（精简版）</h2>
+<p>来源：<code>D:\a\...\26.3.1备份3--修改免拼发货\src\services\slider-stealth.ts</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>反检测项</th>
+      <th>实现概要</th>
+      <th>风险等级</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>webdriver</td><td><code>Object.defineProperty</code> 返回 undefined，delete <code>__proto__.webdriver</code></td><td class="risk-low">低</td></tr>
+    <tr><td>2</td><td>window.chrome</td><td>补全 runtime/loadTimes/csi/app</td><td class="risk-low">低</td></tr>
+    <tr><td>3</td><td>plugins</td><td>随机 3–8 个 Plugin0、Plugin1，无 mimeTypes</td><td class="risk-mid">中（结构不真实）</td></tr>
+    <tr><td>4</td><td>languages</td><td>['zh-CN','zh','en']</td><td class="risk-low">低</td></tr>
+    <tr><td>5</td><td>hardwareConcurrency</td><td>随机 2/4/6/8</td><td class="risk-low">低</td></tr>
+    <tr><td>6</td><td>deviceMemory</td><td>随机 4/8/16</td><td class="risk-low">低</td></tr>
+    <tr><td>7</td><td>platform</td><td>固定 Win32</td><td class="risk-low">低</td></tr>
+    <tr><td>8</td><td>vendor</td><td>Google Inc.</td><td class="risk-low">低</td></tr>
+    <tr><td>9</td><td>maxTouchPoints</td><td>固定 0</td><td class="risk-low">低</td></tr>
+    <tr><td>10</td><td>connection</td><td>effectiveType/rtt/downlink 随机（单次）</td><td class="risk-low">低</td></tr>
+    <tr><td>11</td><td>screen</td><td>availWidth/Height、width/height</td><td class="risk-low">低</td></tr>
+    <tr><td>12</td><td>userAgent</td><td>从 features 传入</td><td class="risk-low">低</td></tr>
+    <tr><td>13</td><td>keys 删除</td><td>cdc_Array、cdc_Promise、playwright、__playwright、webdriver、_selenium、_phantom、phantom、callPhantom（9 项）</td><td class="risk-low">低</td></tr>
+  </tbody>
+</table>
+
+<div class="note"><strong>备份项目无以下项</strong>：mimeTypes、headless、outerWidth/Height、document.hidden、Intl 时区、mediaDevices、permissions.query、EventTarget 鼠标延迟、Canvas、AudioBuffer、WebGL、document.fonts、Battery、Performance.now、Date、RTCPeerConnection、Notification、二次随机、Function.prototype.toString 等。</div>
+
+<hr>
+
+<h2>二、xianyu-super-butler-2.2 _get_stealth_script（完整版）</h2>
+<p>来源：<code>C:\Users\ZML\Downloads\xianyu-super-butler-2.2\xianyu-super-butler-2.2\utils\xianyu_slider_stealth.py</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>反检测项</th>
+      <th>实现概要</th>
+      <th>风险等级</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>webdriver</td><td>Object.defineProperty + delete</td><td class="risk-low">低</td></tr>
+    <tr><td>2</td><td>window.chrome</td><td>直接赋值 + 后文用 getter 覆盖</td><td class="risk-low">低</td></tr>
+    <tr><td>3</td><td>plugins</td><td>随机 3–8 个 Plugin0、Plugin1，无 mimeTypes</td><td class="risk-mid">中</td></tr>
+    <tr><td>4</td><td>languages</td><td>从 features 传入</td><td class="risk-low">低</td></tr>
+    <tr><td>5</td><td>screen</td><td>availWidth/Height、width/height</td><td class="risk-low">低</td></tr>
+    <tr><td>6</td><td>hardwareConcurrency</td><td>随机 2/4/6/8（单次）</td><td class="risk-low">低</td></tr>
+    <tr><td>7</td><td>deviceMemory</td><td>随机 4/8/16（单次）</td><td class="risk-low">低</td></tr>
+    <tr><td>8</td><td>Intl 时区</td><td>resolvedOptions 返回 timeZone</td><td class="risk-low">低</td></tr>
+    <tr><td>9</td><td>cdc_* 删除</td><td>Array、Promise、Symbol</td><td class="risk-low">低</td></tr>
+    <tr><td>10</td><td>maxTouchPoints</td><td>先 0，后覆盖为 0/1/5/10，再覆盖为 1–5</td><td class="risk-mid">低/高</td></tr>
+    <tr><td>11</td><td>platform</td><td>固定 Win32</td><td class="risk-low">低</td></tr>
+    <tr><td>12</td><td>vendor / vendorSub / productSub</td><td>固定值</td><td class="risk-low">低</td></tr>
+    <tr><td>13</td><td>connection</td><td>随机（单次）</td><td class="risk-low">低</td></tr>
+    <tr><td>14</td><td>headless</td><td>返回 undefined</td><td class="risk-low">低</td></tr>
+    <tr><td>15</td><td>outerWidth / outerHeight</td><td>与 viewport 一致</td><td class="risk-low">低</td></tr>
+    <tr><td>16</td><td>mediaDevices</td><td>enumerateDevices 返回 []</td><td class="risk-mid">中</td></tr>
+    <tr><td>17</td><td>__webdriver_* 等</td><td>6 项</td><td class="risk-low">低</td></tr>
+    <tr><td>18</td><td>Playwright 删除</td><td>playwright、__playwright、__pw_manual、__pw_original</td><td class="risk-low">低</td></tr>
+    <tr><td>19</td><td>userAgent</td><td>从 features 传入</td><td class="risk-low">低</td></tr>
+    <tr><td>20</td><td>keys 删除</td><td>webdriver、__webdriver_*、_selenium、_phantom、phantom、Buffer、emit、spawn 等</td><td class="risk-mid">中</td></tr>
+    <tr><td>21</td><td>Canvas toDataURL</td><td>像素加 0.1% 随机噪声</td><td class="risk-high">高</td></tr>
+    <tr><td>22</td><td>AudioBuffer.getChannelData</td><td>数据加随机扰动</td><td class="risk-high">高</td></tr>
+    <tr><td>23</td><td>WebGL getParameter</td><td>固定 Intel Inc. / Intel Iris</td><td class="risk-high">高</td></tr>
+    <tr><td>24</td><td>EventTarget.addEventListener</td><td>mousedown/mouseup/mousemove 加 0–10ms 延迟</td><td class="risk-low">低</td></tr>
+    <tr><td>25</td><td>document.fonts</td><td>完全替换为假 FontFaceSet</td><td class="risk-high">高</td></tr>
+    <tr><td>26</td><td>window.chrome getter</td><td>Object.defineProperty(window,'chrome',{get:...}) 覆盖</td><td class="risk-mid">中</td></tr>
+    <tr><td>27</td><td>mouseMovements / velocityProfile</td><td>记录鼠标轨迹</td><td class="risk-low">低</td></tr>
+    <tr><td>28</td><td>maxTouchPoints 二次随机</td><td>0/1/5/10 或 1–5</td><td class="risk-high">高</td></tr>
+    <tr><td>29</td><td>Battery API</td><td>charging/level 随机</td><td class="risk-high">高</td></tr>
+    <tr><td>30</td><td>Permissions.query</td><td>notifications 固定 denied</td><td class="risk-mid">中</td></tr>
+    <tr><td>31</td><td>Performance.now</td><td>加 0–0.1ms 随机偏移</td><td class="risk-high">高</td></tr>
+    <tr><td>32</td><td>Date / Date.now</td><td>加 -1~1ms 随机偏移</td><td class="risk-high">高</td></tr>
+    <tr><td>33</td><td>RTCPeerConnection</td><td>SDP fingerprint 随机替换</td><td class="risk-high">高</td></tr>
+    <tr><td>34</td><td>Notification.permission</td><td>随机 default/granted/denied</td><td class="risk-high">高</td></tr>
+    <tr><td>35</td><td>Connection 二次随机</td><td>effectiveType/rtt/downlink 动态随机</td><td class="risk-high">高</td></tr>
+    <tr><td>36</td><td>deviceMemory 二次随机</td><td>2/4/8/16 动态随机</td><td class="risk-high">高</td></tr>
+    <tr><td>37</td><td>hardwareConcurrency 二次随机</td><td>2/4/6/8/12/16 动态随机</td><td class="risk-high">高</td></tr>
+    <tr><td>38</td><td>doNotTrack</td><td>随机 1/0/unspecified/null</td><td class="risk-high">高</td></tr>
+    <tr><td>39</td><td>Geolocation</td><td>坐标加随机偏移</td><td class="risk-high">高</td></tr>
+    <tr><td>40</td><td>Clipboard.readText</td><td>加随机延迟</td><td class="risk-mid">中</td></tr>
+    <tr><td>41</td><td>permissions.query 二次</td><td>notifications 返回 Notification.permission</td><td class="risk-mid">中</td></tr>
+    <tr><td>42</td><td>Function.prototype.toString</td><td>对 permissions.query 返回 [native code]</td><td class="risk-high">高</td></tr>
+  </tbody>
+</table>
+
+<div class="note"><strong>xianyu-super-butler-2.2</strong>：与本项目均有 EventTarget 鼠标延迟；<strong>无</strong>：document.hidden/visibilityState/hasFocus、mimeTypes、platform 从 UA 推导。</div>
+
+<hr>
+
+<h2>三、本项目 getStealthScript（完整版）</h2>
+<p>来源：<code>src/services/slider-stealth.ts</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>反检测项</th>
+      <th>实现概要</th>
+      <th>风险等级</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>webdriver</td><td>Object.defineProperty + delete 多处</td><td class="risk-low">低</td></tr>
+    <tr><td>2</td><td>__webdriver_* 等</td><td>__webdriver_script_fn、__webdriver_evaluate、__webdriver_unwrapped、__fxdriver_evaluate、__driver_evaluate、__webdriver_script_func</td><td class="risk-low">低</td></tr>
+    <tr><td>3</td><td>window.chrome</td><td>补全 runtime/loadTimes/csi/app</td><td class="risk-low">低</td></tr>
+    <tr><td>4</td><td>plugins</td><td>Chrome PDF 标准格式（3 个插件）</td><td class="risk-low">低</td></tr>
+    <tr><td>5</td><td>mimeTypes</td><td>与 plugins 配套的 mimeTypes</td><td class="risk-mid">中</td></tr>
+    <tr><td>6</td><td>languages</td><td>['zh-CN','zh','en']</td><td class="risk-low">低</td></tr>
+    <tr><td>7</td><td>platform</td><td>从 UA 推导 MacIntel/Win32</td><td class="risk-low">低</td></tr>
+    <tr><td>8</td><td>vendor / vendorSub / productSub</td><td>固定值</td><td class="risk-low">低</td></tr>
+    <tr><td>9</td><td>Intl 时区</td><td>resolvedOptions 返回 timeZone</td><td class="risk-low">低</td></tr>
+    <tr><td>10</td><td>connection</td><td>effectiveType/rtt/downlink 随机（单次）</td><td class="risk-low">低</td></tr>
+    <tr><td>11</td><td>headless</td><td>返回 undefined</td><td class="risk-low">低</td></tr>
+    <tr><td>12</td><td>outerWidth / outerHeight</td><td>与 viewport 一致</td><td class="risk-low">低</td></tr>
+    <tr><td>13</td><td>mediaDevices</td><td>enumerateDevices 返回 []</td><td class="risk-mid">中</td></tr>
+    <tr><td>14</td><td>permissions.query</td><td>catch 后返回随机 prompt/denied</td><td class="risk-mid">中</td></tr>
+    <tr><td>15</td><td>document.hidden / visibilityState / hasFocus</td><td>伪装可见、有焦点</td><td class="risk-mid">中</td></tr>
+    <tr><td>16</td><td>screen</td><td>availWidth/Height、width/height</td><td class="risk-low">低</td></tr>
+    <tr><td>17</td><td>userAgent</td><td>从 features 传入</td><td class="risk-low">低</td></tr>
+    <tr><td>18</td><td>Playwright 删除</td><td>playwright、__playwright、__pw_manual、__pw_original</td><td class="risk-low">低</td></tr>
+    <tr><td>19</td><td>keys 删除</td><td>18 项（含 Buffer、emit、spawn）</td><td class="risk-mid">中</td></tr>
+    <tr><td>20</td><td>EventTarget.addEventListener</td><td>mousedown/mouseup/mousemove 加 0–10ms 随机延迟</td><td class="risk-low">低</td></tr>
+    <tr><td>21</td><td>Canvas toDataURL</td><td>像素加 0.1% 随机噪声</td><td class="risk-high">高</td></tr>
+    <tr><td>22</td><td>AudioBuffer.getChannelData</td><td>数据加微小随机扰动</td><td class="risk-high">高</td></tr>
+    <tr><td>23</td><td>WebGL getParameter</td><td>固定返回 Intel Inc. / Intel Iris</td><td class="risk-high">高</td></tr>
+    <tr><td>24</td><td>document.fonts</td><td>完全替换为假 FontFaceSet</td><td class="risk-high">高</td></tr>
+    <tr><td>25</td><td>mouseMovements / velocityProfile</td><td>记录鼠标轨迹（仅记录，不重写）</td><td class="risk-low">低</td></tr>
+    <tr><td>26</td><td>Battery API</td><td>charging/level 随机</td><td class="risk-high">高</td></tr>
+    <tr><td>27</td><td>Performance.now</td><td>加 0–0.1ms 随机偏移</td><td class="risk-high">高</td></tr>
+    <tr><td>28</td><td>Date / Date.now</td><td>加 -1~1ms 随机偏移</td><td class="risk-high">高</td></tr>
+    <tr><td>29</td><td>RTCPeerConnection</td><td>SDP fingerprint 随机替换</td><td class="risk-high">高</td></tr>
+    <tr><td>30</td><td>Notification.permission</td><td>随机 default/granted/denied</td><td class="risk-high">高</td></tr>
+    <tr><td>31</td><td>Connection 二次随机</td><td>effectiveType/rtt/downlink 再次动态随机</td><td class="risk-high">高</td></tr>
+    <tr><td>32</td><td>deviceMemory 二次随机</td><td>2/4/8/16 动态随机</td><td class="risk-high">高</td></tr>
+    <tr><td>33</td><td>hardwareConcurrency 二次随机</td><td>2/4/6/8/12/16 动态随机</td><td class="risk-high">高</td></tr>
+    <tr><td>34</td><td>maxTouchPoints 二次随机</td><td>1–5 动态随机</td><td class="risk-high">高</td></tr>
+    <tr><td>35</td><td>doNotTrack</td><td>随机 1/0/unspecified/null</td><td class="risk-high">高</td></tr>
+    <tr><td>36</td><td>Geolocation</td><td>坐标加随机偏移</td><td class="risk-high">高</td></tr>
+    <tr><td>37</td><td>Clipboard.readText</td><td>加随机延迟</td><td class="risk-mid">中</td></tr>
+    <tr><td>38</td><td>permissions.query 二次</td><td>notifications 返回 Notification.permission</td><td class="risk-mid">中</td></tr>
+    <tr><td>39</td><td>Function.prototype.toString</td><td>对 permissions.query 返回 [native code]</td><td class="risk-high">高</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>四、高风险项汇总（三项目对比）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>高风险项</th>
+      <th>备份项目</th>
+      <th>xianyu-super-butler-2.2</th>
+      <th>本项目</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Function.prototype.toString</td><td>❌</td><td>✅</td><td>✅</td><td>易被专门检测</td></tr>
+    <tr><td>WebGL 固定 Intel</td><td>❌</td><td>✅</td><td>✅</td><td>与 UA/设备易不一致</td></tr>
+    <tr><td>Canvas toDataURL 噪声</td><td>❌</td><td>✅</td><td>✅</td><td>指纹易不一致</td></tr>
+    <tr><td>AudioBuffer 噪声</td><td>❌</td><td>✅</td><td>✅</td><td>同上</td></tr>
+    <tr><td>document.fonts 替换</td><td>❌</td><td>✅</td><td>✅</td><td>易被检测、影响页面</td></tr>
+    <tr><td>Battery 随机</td><td>❌</td><td>✅</td><td>✅</td><td>多次调用不一致</td></tr>
+    <tr><td>Performance.now 抖动</td><td>❌</td><td>✅</td><td>✅</td><td>时序可被分析</td></tr>
+    <tr><td>Date 偏移</td><td>❌</td><td>✅</td><td>✅</td><td>同上</td></tr>
+    <tr><td>RTCPeerConnection</td><td>❌</td><td>✅</td><td>✅</td><td>WebRTC 指纹异常</td></tr>
+    <tr><td>Notification 随机</td><td>❌</td><td>✅</td><td>✅</td><td>多次不一致</td></tr>
+    <tr><td>Connection 二次随机</td><td>❌</td><td>✅</td><td>✅</td><td>同一会话内不一致</td></tr>
+    <tr><td>deviceMemory 二次随机</td><td>❌</td><td>✅</td><td>✅</td><td>同上</td></tr>
+    <tr><td>hardwareConcurrency 二次随机</td><td>❌</td><td>✅</td><td>✅</td><td>同上</td></tr>
+    <tr><td>maxTouchPoints 二次随机</td><td>❌</td><td>✅</td><td>✅</td><td>同上</td></tr>
+    <tr><td>doNotTrack 随机</td><td>❌</td><td>✅</td><td>✅</td><td>同上</td></tr>
+    <tr><td>Geolocation 偏移</td><td>❌</td><td>✅</td><td>✅</td><td>同上</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>五、脚本体量对比</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>约行数</th>
+      <th>反检测项数</th>
+      <th>高风险项数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>备份项目</td><td>~50</td><td>13</td><td>0</td></tr>
+    <tr><td>xianyu-super-butler-2.2</td><td>~280</td><td>42</td><td>15</td></tr>
+    <tr><td>本项目</td><td>~320</td><td>39</td><td>15</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>六、结论</h2>
+<div class="conclusion">
+  <ul>
+    <li><strong>备份项目</strong>：Token 验证页仅做基础反检测，无 Function.toString、WebGL、Canvas、Audio、document.fonts、Battery、Performance、Date、RTC、大量随机等高风险项。</li>
+    <li><strong>xianyu-super-butler-2.2</strong>：与本项目类似，使用完整版脚本，含 15 项高风险改写；plugins 为 Plugin0/1 等通用格式，platform 固定 Win32；含 EventTarget 鼠标延迟。</li>
+    <li><strong>本项目</strong>：Token 验证页使用完整版脚本，含 15 项高风险改写；plugins 为 Chrome PDF 标准格式，platform 从 UA 推导；已补充 EventTarget 鼠标延迟。</li>
+  </ul>
+  <p>若验证通过率不理想，可参考备份项目，将 <code>getStealthScript</code> 精简为仅保留 webdriver、chrome、plugins、languages、connection、screen、userAgent、keys 删除等基础项。</p>
+</div>
+
+</body>
+</html>

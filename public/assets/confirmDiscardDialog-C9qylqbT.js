@@ -1,0 +1,1 @@
+import{K as e}from"./index-S8lMZcGI.js";function t(t){return e(t)}export{t};

@@ -1,0 +1,1 @@
+function e(){return[`conversations-react-page`,`flex min-h-0 flex-1 basis-0 flex-col gap-0 overflow-hidden`,`bg-[var(--background,#fafafa)] text-[var(--foreground,#171717)]`].join(` `)}export{e as t};

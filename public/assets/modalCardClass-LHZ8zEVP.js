@@ -1,0 +1,1 @@
+function e(e){return e===`geek`?`card glass-card text-[color:var(--geek-fg)]`:e===`dark`?`card glass-card text-white`:e===`modern`?`border-stone-200 bg-[#fbf8f4] text-stone-900`:e===`apple`?`border border-black/[0.09] bg-white text-[#1c1c1e] shadow-[0_4px_24px_rgba(0,0,0,0.07)]`:`border border-slate-200/85 bg-white text-slate-900 shadow-sm shadow-slate-900/5`}export{e as t};
